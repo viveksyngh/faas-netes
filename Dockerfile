@@ -15,7 +15,7 @@ RUN license-check -path ./ --verbose=false "Alex Ellis" "OpenFaaS Project"
 RUN gofmt -l -d $(find . -type f -name '*.go' -not -path "./vendor/*") \
   && CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o faas-netes .
 
-FROM alpine:3.6
+FROM alpine:3.7
 
 RUN addgroup -S app \
     && adduser -S -g app app \
